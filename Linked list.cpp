@@ -60,6 +60,7 @@ void delete_by_order(struct list** head_r, int position) {
 	if (position == 0) {
 		*head_r = temp->next;
 		free(temp);
+		return;
 	}
 	else {
 		for (int i = 0; i < position - 1; i++) {
