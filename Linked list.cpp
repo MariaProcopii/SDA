@@ -45,6 +45,7 @@ void delete_by_info(struct list** head_r, int info) {
 	if (temp != NULL && temp->data == info) {
 		*head_r = temp->next;
 		free(temp);
+		return;
 	}
 	while (temp != NULL && temp->data != info) {
 		prew = temp;
