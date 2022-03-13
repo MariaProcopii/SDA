@@ -22,24 +22,23 @@ struct node* new_node(int data) {
 	return temp;
 }
 //insert node
-struct node* insert(struct node* node, int data) {
-	if (node == NULL)
+struct node* insert(struct node* root, int data) {
+	if (root == NULL)
 		return new_node(data);
 
-	if (data < node->data)
-		node->left = insert(node->left, data);
+	if (data < root->data)
+		root->left = insert(root->left, data);
 	
 	else
-		node->right = insert(node->right, data);
+		root->right = insert(root->right, data);
 
-	return node;
+	return root;
 }
 
 struct node* min_node(struct node* node) {
-	struct node* temp = node;
-	while (temp && temp->left != NULL)
-		temp = temp->left;
-	return temp;
+	while (node->left != NULL)
+		node = node->left;
+	return node;
 }
 struct node* delete_node(struct node* root, int data) {
 	if (root == NULL)
